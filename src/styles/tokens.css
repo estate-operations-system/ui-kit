@@ -1,0 +1,16 @@
+:root {
+  --eos-color-primary: #2563eb;
+  --eos-color-secondary: #64748b;
+  --eos-color-success: #16a34a;
+  --eos-color-error: #dc2626;
+  --eos-color-text: #0f172a;
+  --eos-color-bg: #ffffff;
+
+  --eos-space-xs: 4px;
+  --eos-space-s: 8px;
+  --eos-space-m: 16px;
+  --eos-space-l: 24px;
+
+  --eos-radius-s: 4px;
+  --eos-radius-m: 8px;
+}
