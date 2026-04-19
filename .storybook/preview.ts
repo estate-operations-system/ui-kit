@@ -5,7 +5,7 @@ import '../src/styles/tokens.css'
 const preview: Preview = {
   parameters: {
     layout: 'padded',
-    controls: { expanded: true },
+    controls: { expanded: true }
   },
 }
 
