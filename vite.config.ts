@@ -7,6 +7,12 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 export default defineConfig({
   plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': path.resolve(dirname, './src'),
+      '@styles': path.resolve(dirname, './src/styles'),
+    },
+  },
   server: {
     allowedHosts: ['phonesthemic-unexplicitly-edythe.ngrok-free.dev']
   },
