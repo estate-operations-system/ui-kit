@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component: 
-          'A reusable input component with support for helper text, error state, and disabled state. ' +
+          'A reusable input component with support for error state and disabled state. ' +
           'Built with SCSS for easy customization. ' +
           'Supports text, email, password, and tel input types.',
       },
@@ -30,10 +30,6 @@ const meta = {
     placeholder: {
       control: 'text',
       description: 'Placeholder text shown when input is empty',
-    },
-    helperText: {
-      control: 'text',
-      description: 'Helper text displayed below the input (not shown if error is set)',
     },
     error: {
       control: 'text',
@@ -61,17 +57,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     placeholder: 'Enter your name',
-  },
-};
-
-/**
- * Input with helper text
- */
-export const WithHelperText: Story = {
-  args: {
-    placeholder: 'Enter your email',
-    helperText: 'We will never share your email with anyone',
-    type: InputType.Email,
   },
 };
 
@@ -104,29 +89,6 @@ export const Disabled: Story = {
 export const Password: Story = {
   args: {
     type: InputType.Password,
-    placeholder: 'Enter your password',
-    helperText: 'Password must be at least 8 characters',
-  },
-};
-
-/**
- * Phone number input
- */
-export const PhoneNumber: Story = {
-  args: {
-    type: InputType.Tel,
-    placeholder: 'Enter your phone number',
-    helperText: 'Format: +1 (555) 000-0000',
-  },
-};
-
-/**
- * Disabled with error state (error takes precedence visually)
- */
-export const DisabledWithError: Story = {
-  args: {
-    disabled: true,
-    error: 'This field has an error but is disabled',
-    modelValue: 'Some value',
+    placeholder: 'Enter your password'
   },
 };

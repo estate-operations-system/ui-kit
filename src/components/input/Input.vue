@@ -48,7 +48,6 @@ const inputClasses = computed(() => ({
 
   &:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(85, 90, 185, 0.1);
   }
 
   &::placeholder {
@@ -61,7 +60,6 @@ const inputClasses = computed(() => ({
 
     &:focus {
       border-color: var(--color-error);
-      box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
     }
   }
 
@@ -73,7 +71,6 @@ const inputClasses = computed(() => ({
 
     &:focus {
       border-color: var(--color-border);
-      box-shadow: none;
     }
 
     &::placeholder {
