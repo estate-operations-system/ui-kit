@@ -9,3 +9,4 @@ coverage
 .nuxt
 .output
 storybook-static
+src/components/icons/ComponentTemplate.vue

@@ -19,7 +19,8 @@
     "lint": "eslint src --ext .ts,.tsx,.vue && stylelint src/**/*.{css,scss}",
     "lint:fix": "eslint src --ext .ts,.tsx,.vue --fix && stylelint src/**/*.{css,scss} --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,vue,json,css,scss}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,vue,json,css,scss}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,vue,json,css,scss}\"",
+    "prepare": "husky"
   },
   "peerDependencies": {
     "vue": "^3.3.0"
@@ -35,6 +36,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-vue": "^9.27.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "storybook": "^10.3.5",
@@ -49,5 +52,18 @@
   "dependencies": {
     "vite-svg-loader": "^5.1.1",
     "yalc": "^1.0.0-pre.53"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{json}": [
+      "prettier --write"
+    ]
   }
 }

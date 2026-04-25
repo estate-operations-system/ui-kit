@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <!-- This is a template for generating icon components -->
-    <!-- Icon components have a fixed size of 24x24px -->
-  </div>
+  <!-- SVG content will be inserted here during generation -->
 </template>
 
 <script setup lang="ts">
