@@ -6,35 +6,35 @@ export enum InputType {
 }
 
 export interface InputProps {
-    /**
-     * The input value
-     */
-    modelValue: string;
-    /**
-     * Input type (text, email, password, etc.)
-     */
-    type: InputType;
-    /**
-     * Placeholder text
-     */
-    placeholder: string;
-    /**
-     * Helper text displayed below the input
-     */
-    helperText?: string;
-    /**
-     * Error message - when set, input shows error state
-     */
-    error?: string;
-    /**
-     * Disabled state
-     */
-    disabled: boolean;
+  /**
+   * The input value
+   */
+  modelValue: string
+  /**
+   * Input type (text, email, password, etc.)
+   */
+  type: InputType
+  /**
+   * Placeholder text
+   */
+  placeholder: string
+  /**
+   * Helper text displayed below the input
+   */
+  helperText?: string
+  /**
+   * Error message - when set, input shows error state
+   */
+  error?: string
+  /**
+   * Disabled state
+   */
+  disabled: boolean
 }
 
 export interface InputEmits {
-    /**
-     * Emitted when the input value changes (v-model)
-     */
-    (event: 'update:modelValue', value: string): void;
+  /**
+   * Emitted when the input value changes (v-model)
+   */
+  (event: 'update:modelValue', value: string): void
 }

@@ -1,1 +1,1 @@
-export {default as EosInput} from './Input.vue'
+export { default as EosInput } from './Input.vue'

@@ -14,12 +14,12 @@
   --color-text: #333;
   --color-text-light: #666;
   --color-text-disabled: #999;
-  --color-background: #ffffff;
+  --color-background: #fff;
   --color-background-light: #f5f5f5;
   --color-background-error: #ffebee;
 
   /* Typography */
-  --font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family: 'Nunito Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
   --font-size-s: 12px;
   --font-size-m: 14px;
   --font-size-l: 16px;
@@ -45,9 +45,9 @@
   --border-radius-full: 9999px;
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-s: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-m: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-l: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 5%);
+  --shadow-s: 0 1px 3px rgb(0 0 0 / 10%);
+  --shadow-m: 0 4px 6px rgb(0 0 0 / 10%);
+  --shadow-l: 0 10px 15px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px rgb(0 0 0 / 10%);
 }
