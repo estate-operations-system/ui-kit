@@ -17,7 +17,7 @@ try {
 }
 
 const files = await readdir(ICONS_PATH)
-const svgFiles = files.filter(f => f.endsWith('.svg'))
+const svgFiles = files.filter((f) => f.endsWith('.svg'))
 
 const ComponentTemplateData = await readFile(TEMPLATE_PATH, 'utf8')
 
@@ -40,6 +40,7 @@ await writeFile(
   indexFileContent || '// Auto-generated icon components index\n'
 )
 
+// eslint-disable-next-line no-console
 console.log(`✓ Generated ${svgFiles.length} icon components`)
 
 function optimizeIconContent(iconContent: string) {
@@ -69,14 +70,14 @@ async function createIconComponent(file: string, iconContent: string) {
   indexFileContent += `export { default as Eos${iconComponentName} } from './${iconComponentName}.vue'\n`
 
   // Remove width/height attributes to use viewBox for scaling
-  let componentContent = iconContent.replace(/(width=".*?"\s)|(height=".*?"\s)/g, '')
+  const componentContent = iconContent.replace(/(width=".*?"\s)|(height=".*?"\s)/g, '')
 
-  const fullComponent = ComponentTemplateData.replace('<template>', `<template>\n${componentContent}\n`)
-
-  await writeFile(
-    path.join(COMPONENTS_PATH, `${iconComponentName}.vue`),
-    fullComponent
+  const fullComponent = ComponentTemplateData.replace(
+    /<template>[\s\S]*?<\/template>/,
+    `<template>\n${componentContent}\n</template>`
   )
+
+  await writeFile(path.join(COMPONENTS_PATH, `${iconComponentName}.vue`), fullComponent)
 }
 
 function camelize(value: string) {
@@ -84,6 +85,6 @@ function camelize(value: string) {
 }
 
 function pascalize(value: string) {
-  let trimmed = value.trim()
+  const trimmed = value.trim()
   return trimmed[0].toUpperCase() + camelize(trimmed.slice(1))
 }

@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run generate-icons
+git add src/components/icons/
+npx lint-staged

@@ -1,6 +1,6 @@
 {
   "name": "eos-ui-kit",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "UI component library for the Estate Operations System",
   "private": false,
   "type": "module",
@@ -15,7 +15,12 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate-icons": "tsx src/scripts/generate-icons.ts"
+    "generate-icons": "tsx src/scripts/generate-icons.ts",
+    "lint": "eslint src --ext .ts,.tsx,.vue && stylelint src/**/*.{css,scss}",
+    "lint:fix": "eslint src --ext .ts,.tsx,.vue --fix && stylelint src/**/*.{css,scss} --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,vue,json,css,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,vue,json,css,scss}\"",
+    "prepare": "husky"
   },
   "peerDependencies": {
     "vue": "^3.3.0"
@@ -23,10 +28,22 @@
   "devDependencies": {
     "@storybook/addon-docs": "^10.3.5",
     "@storybook/vue3-vite": "^10.3.5",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-vue": "^5.0.0",
     "@vue/tsconfig": "^0.8.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-vue": "^9.27.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "storybook": "^10.3.5",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard-scss": "^4.0.0",
     "svgo": "^4.0.1",
     "tsx": "^4.21.0",
     "typescript": "^5.0.0",
@@ -35,5 +52,18 @@
   "dependencies": {
     "vite-svg-loader": "^5.1.1",
     "yalc": "^1.0.0-pre.53"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{json}": [
+      "prettier --write"
+    ]
   }
 }

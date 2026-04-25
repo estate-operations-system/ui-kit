@@ -3,7 +3,7 @@ import EosAccountIcon from '../../components/icons/AccountIcon.vue'
 
 const meta = {
   title: 'Icons/All Icons',
-  tags: ['autodocs'],
+  tags: ['autodocs']
 } satisfies Meta
 
 export default meta
