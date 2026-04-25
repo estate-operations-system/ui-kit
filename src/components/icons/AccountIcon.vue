@@ -10,8 +10,6 @@
       <clipPath id="a"><path fill="currentColor" d="M0 0h24v24H0z" /></clipPath>
     </defs>
   </svg>
-
-  <!-- SVG content will be inserted here during generation -->
 </template>
 
 <script setup lang="ts">

@@ -73,8 +73,8 @@ async function createIconComponent(file: string, iconContent: string) {
   const componentContent = iconContent.replace(/(width=".*?"\s)|(height=".*?"\s)/g, '')
 
   const fullComponent = ComponentTemplateData.replace(
-    '<template>',
-    `<template>\n${componentContent}\n`
+    /<template>[\s\S]*?<\/template>/,
+    `<template>\n${componentContent}\n</template>`
   )
 
   await writeFile(path.join(COMPONENTS_PATH, `${iconComponentName}.vue`), fullComponent)
