@@ -1,6 +1,6 @@
 {
   "name": "eos-ui-kit",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "UI component library for the Estate Operations System",
   "private": false,
   "type": "module",
