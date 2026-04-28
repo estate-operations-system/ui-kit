@@ -4,7 +4,13 @@
   </svg>
 </template>
 
-<script setup lang="ts">
-  // Icon components have a fixed size of 24x24px
-  // To use different sizes, scale the containing element
-</script>
+<style scoped>
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+  }
+</style>

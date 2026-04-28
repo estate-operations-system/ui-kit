@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
     <g clip-path="url(#a)">
       <path
         fill="currentColor"
@@ -12,7 +12,13 @@
   </svg>
 </template>
 
-<script setup lang="ts">
-  // Icon components have a fixed size of 24x24px
-  // To use different sizes, scale the containing element
-</script>
+<style scoped>
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+  }
+</style>

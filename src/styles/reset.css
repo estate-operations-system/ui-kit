@@ -12,6 +12,8 @@
 html,
 body {
   height: 100%;
+  font-family: var(--eos-font-family);
+  color: var(--eos-color-primary-950);
 }
 
 body {
