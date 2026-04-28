@@ -16,6 +16,10 @@ body {
   color: var(--eos-color-primary-950);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
