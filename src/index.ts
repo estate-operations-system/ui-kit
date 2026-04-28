@@ -9,3 +9,6 @@ export { ButtonSize, ButtonVariant, type ButtonProps } from './components/button
 
 // Icons (auto-generated from src/icons/*.svg)
 export * from './components/icons'
+
+// Utils
+export * from './utils'

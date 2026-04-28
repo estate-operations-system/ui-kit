@@ -28,15 +28,7 @@ export interface ButtonProps {
    */
   loading: boolean
   /**
-   * Icon class or name (e.g., 'icon-search', emoji, or HTML)
+   * Link URL - if provided, renders as a link
    */
-  icon?: string
-  /**
-   * Icon position relative to text
-   */
-  iconPosition: 'left' | 'right'
-  /**
-   * Show only icon without text content
-   */
-  iconOnly?: boolean
+  to?: string
 }
