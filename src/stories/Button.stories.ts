@@ -21,20 +21,15 @@ const meta = {
     loading: {
       control: 'boolean'
     },
-    icon: {
+    to: {
       control: 'text'
-    },
-    iconPosition: {
-      control: 'radio',
-      options: ['left', 'right']
     }
   },
   args: {
     size: ButtonSize.Small,
     variant: ButtonVariant.Primary,
     disabled: false,
-    loading: false,
-    iconPosition: 'left'
+    loading: false
   }
 } satisfies Meta<typeof Button>
 
@@ -80,33 +75,6 @@ export const Sizes: Story = {
         <Button :size="ButtonSize.Large">Large</Button>
       </div>
     `
-  })
-}
-
-export const WithIcon: Story = {
-  args: {
-    icon: ''
-  },
-  render: (args) => ({
-    components: { Button },
-    setup() {
-      return { args }
-    },
-    template: '<Button v-bind="args">Найти</Button>'
-  })
-}
-
-export const IconRight: Story = {
-  args: {
-    icon: '→',
-    iconPosition: 'right'
-  },
-  render: (args) => ({
-    components: { Button },
-    setup() {
-      return { args }
-    },
-    template: '<Button v-bind="args">Далее</Button>'
   })
 }
 
@@ -157,5 +125,18 @@ export const AllVariants: Story = {
         <Button :variant="ButtonVariant.Secondary" icon="">With Icon</Button>
       </div>
     `
+  })
+}
+
+export const AsLink: Story = {
+  args: {
+    to: 'https://estate-operations.ru'
+  },
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args }
+    },
+    template: '<Button v-bind="args">Перейти на сайт</Button>'
   })
 }

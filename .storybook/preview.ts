@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/vue3-vite'
-import '../src/styles/variables.css'
 import '../src/styles/reset.css'
 import '../src/styles/tokens.css'
 

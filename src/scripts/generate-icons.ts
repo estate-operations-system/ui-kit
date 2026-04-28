@@ -70,7 +70,12 @@ async function createIconComponent(file: string, iconContent: string) {
   indexFileContent += `export { default as Eos${iconComponentName} } from './${iconComponentName}.vue'\n`
 
   // Remove width/height attributes to use viewBox for scaling
-  const componentContent = iconContent.replace(/(width=".*?"\s)|(height=".*?"\s)/g, '')
+  let componentContent = iconContent.replace(/(width=".*?"\s)|(height=".*?"\s)/g, '')
+
+  // Ensure viewBox is present for proper scaling
+  if (!componentContent.includes('viewBox=')) {
+    componentContent = componentContent.replace(/<svg\s/, '<svg viewBox="0 0 24 24" ')
+  }
 
   const fullComponent = ComponentTemplateData.replace(
     /<template>[\s\S]*?<\/template>/,

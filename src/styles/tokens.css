@@ -1,14 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root {
-  --eos-color-primary: #2563eb;
-  --eos-color-secondary: #64748b;
-  --eos-color-success: #16a34a;
-  --eos-color-error: #dc2626;
-  --eos-color-text: #0f172a;
-  --eos-color-bg: #fff;
+  /* Colors */
+  --eos-color-primary-50: #f7f0ee;
+  --eos-color-primary-100: #efe1dc;
+  --eos-color-primary-200: #dec3ba;
+  --eos-color-primary-300: #cea597;
+  --eos-color-primary-400: #be8774;
+  --eos-color-primary-500: #ad6952;
+  --eos-color-primary-600: #8b5441;
+  --eos-color-primary-700: #683f31;
+  --eos-color-primary-800: #452a21;
+  --eos-color-primary-900: #231510;
+  --eos-color-primary-950: #180f0b;
+
+  /* Colors with Alpha (for shadows and overlays) */
+  --eos-color-primary-600-alpha-10: rgb(139 84 65 / 10%);
+  --eos-color-primary-600-alpha-15: rgb(139 84 65 / 15%);
+  --eos-color-primary-600-alpha-20: rgb(139 84 65 / 20%);
+  --eos-color-primary-600-alpha-25: rgb(139 84 65 / 25%);
+  --eos-color-primary-600-alpha-30: rgb(139 84 65 / 30%);
+
+  /* Colors with alpha 0.7 */
+  --eos-color-primary-50-alpha: rgb(247 240 238 / 70%);
+  --eos-color-primary-100-alpha: rgb(239 225 220 / 70%);
+  --eos-color-primary-200-alpha: rgb(222 195 186 / 70%);
+  --eos-color-primary-300-alpha: rgb(206 165 151 / 70%);
+  --eos-color-primary-400-alpha: rgb(190 135 116 / 70%);
+  --eos-color-primary-500-alpha: rgb(173 105 82 / 70%);
+  --eos-color-primary-600-alpha: rgb(139 84 65 / 70%);
+  --eos-color-primary-700-alpha: rgb(104 63 49 / 70%);
+  --eos-color-primary-800-alpha: rgb(69 42 33 / 70%);
+  --eos-color-primary-900-alpha: rgb(35 21 16 / 70%);
+  --eos-color-primary-950-alpha: rgb(24 15 11 / 70%);
+
+  /* Typography */
+  --eos-font-family: 'Nunito', 'Helvetica Neue', helvetica, arial, sans-serif;
+  --eos-font-size-xs: 12px;
+  --eos-font-size-s: 14px;
+  --eos-font-size-m: 16px;
+  --eos-font-size-l: 20px;
+  --eos-font-size-xl: 24px;
+  --eos-font-size-2xl: 32px;
+  --eos-font-weight-regular: 400;
+  --eos-font-weight-medium: 500;
+  --eos-font-weight-semibold: 600;
+  --eos-font-weight-bold: 700;
+  --eos-line-height-tight: 1.2;
+  --eos-line-height-normal: 1.4;
+  --eos-line-height-relaxed: 1.6;
+
+  /* Spacing */
   --eos-space-xs: 4px;
   --eos-space-s: 8px;
   --eos-space-m: 16px;
   --eos-space-l: 24px;
+  --eos-space-xl: 32px;
+  --eos-space-2xl: 48px;
+
+  /* Border */
   --eos-radius-s: 4px;
   --eos-radius-m: 8px;
+  --eos-radius-l: 12px;
+  --eos-radius-full: 9999px;
+
+  /* Shadows using primary colors */
+  --eos-shadow-xs: 0 1px 2px var(--eos-color-primary-600-alpha-10);
+  --eos-shadow-s: 0 1px 3px var(--eos-color-primary-600-alpha-15);
+  --eos-shadow-m: 0 4px 6px var(--eos-color-primary-600-alpha-20);
+  --eos-shadow-l: 0 10px 15px var(--eos-color-primary-600-alpha-25);
+  --eos-shadow-xl: 0 20px 25px var(--eos-color-primary-600-alpha-30);
 }
