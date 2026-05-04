@@ -5,13 +5,14 @@
     :class="buttonClasses"
     :href="to"
     :target="to && isExternalLink(to) ? '_blank' : undefined"
+    :disabled
     @click="handleClick"
   >
-    <span class="button__content">
+    <span class="button__content" :class="{ button__content_hidden: loading }">
       <slot />
     </span>
-    <span v-if="loading" class="button__spinner">
-      <eos-loop-icon />
+    <span v-if="loading && variant !== ButtonVariant.Tertiary" class="button__spinner">
+      <EosLoopIcon />
     </span>
   </component>
 </template>
@@ -33,15 +34,19 @@
     click: []
   }>()
 
-  const buttonClasses = computed(() => ({
-    [`button_${props.size}`]: true,
-    [`button_${props.variant}`]: true,
-    button_disabled: props.disabled,
-    button_loading: props.loading
-  }))
+  const isInteractive = computed(() => !props.disabled && !props.loading)
+
+  const buttonClasses = computed(() => [
+    `button_${props.size}`,
+    `button_${props.variant}`,
+    {
+      button_disabled: props.disabled,
+      button_loading: props.loading
+    }
+  ])
 
   const handleClick = () => {
-    if (!props.to && !props.disabled && !props.loading) {
+    if (!props.to && isInteractive.value) {
       emit('click')
     }
   }
@@ -55,70 +60,132 @@
     font-weight: var(--eos-font-weight-semibold);
     white-space: nowrap;
     position: relative;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    @mixin button-size($padding, $font-size, $min-height, $radius) {
+      padding: $padding;
+      font-size: $font-size;
+      min-height: $min-height;
+      border-radius: $radius;
+    }
 
     &_small {
-      padding: var(--eos-space-xs) var(--eos-space-s);
-      font-size: var(--eos-font-size-s);
-      min-height: 32px;
-      border-radius: var(--eos-radius-s);
+      @include button-size(
+        var(--eos-space-xs) var(--eos-space-s),
+        var(--eos-font-size-s),
+        32px,
+        var(--eos-radius-s)
+      );
     }
 
     &_medium {
-      padding: var(--eos-space-s) var(--eos-space-m);
-      font-size: var(--eos-font-size-m);
-      min-height: 40px;
-      border-radius: var(--eos-radius-m);
+      @include button-size(
+        var(--eos-space-s) var(--eos-space-m),
+        var(--eos-font-size-m),
+        40px,
+        var(--eos-radius-m)
+      );
     }
 
     &_large {
-      padding: var(--eos-space-s) var(--eos-space-l);
-      font-size: var(--eos-font-size-xl);
-      min-height: 48px;
-      border-radius: var(--eos-radius-l);
+      @include button-size(
+        var(--eos-space-s) var(--eos-space-l),
+        var(--eos-font-size-xl),
+        48px,
+        var(--eos-radius-l)
+      );
     }
 
-    &_primary {
-      background-color: var(--eos-color-primary-600);
-      color: var(--eos-color-primary-50);
-
-      &:hover:not(:disabled) {
-        background-color: var(--eos-color-primary-700);
-      }
-
-      &:active:not(:disabled) {
-        background-color: var(--eos-color-primary-800);
-      }
-    }
-
-    &_secondary {
-      background-color: var(--eos-color-primary-50);
-      color: var(--eos-color-primary-600);
-
-      &:hover:not(:disabled) {
-        background-color: var(--eos-color-primary-100);
-      }
-
-      &:active:not(:disabled) {
-        background-color: var(--eos-color-primary-200);
-      }
+    &_disabled,
+    &_loading {
+      cursor: not-allowed;
     }
 
     &_disabled {
       opacity: 0.6;
-      cursor: not-allowed;
       pointer-events: none;
     }
 
     &_loading {
       cursor: wait;
+    }
 
-      .button__content {
+    @mixin button-variant($bg, $color, $hover-bg, $active-bg, $hover-color: null) {
+      background-color: $bg;
+      color: $color;
+
+      &:hover:not(.button_disabled):not(.button_loading) {
+        background-color: $hover-bg;
+        @if $hover-color {
+          color: $hover-color;
+        }
+      }
+
+      &:active:not(.button_disabled):not(.button_loading) {
+        background-color: $active-bg;
+      }
+    }
+
+    &_primary {
+      @include button-variant(
+        var(--eos-color-primary-600),
+        var(--eos-color-primary-50),
+        var(--eos-color-primary-700),
+        var(--eos-color-primary-800)
+      );
+    }
+
+    &_secondary {
+      @include button-variant(
+        var(--eos-color-primary-50),
+        var(--eos-color-primary-600),
+        var(--eos-color-primary-100),
+        var(--eos-color-primary-200)
+      );
+    }
+
+    &_tertiary {
+      background: transparent;
+      color: var(--eos-color-primary-600);
+      padding: 0;
+      min-height: auto;
+      border-radius: 0;
+      font-weight: var(--eos-font-weight-semibold);
+
+      &:hover:not(.button_disabled):not(.button_loading) {
+        color: var(--eos-color-primary-700);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      &:active:not(.button_disabled):not(.button_loading) {
+        color: var(--eos-color-primary-800);
+      }
+
+      &.button_loading {
+        opacity: 0.6;
+        color: var(--eos-color-primary-600);
+      }
+    }
+
+    &__content {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--eos-space-xs);
+
+      &_hidden {
         opacity: 0;
       }
     }
 
     &__spinner {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 1.5em;
       height: 1.5em;
 

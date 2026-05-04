@@ -62,6 +62,19 @@ export const Secondary: Story = {
   })
 }
 
+export const Tertiary: Story = {
+  args: {
+    variant: ButtonVariant.Tertiary
+  },
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args }
+    },
+    template: '<Button v-bind="args">Ссылка кнопка</Button>'
+  })
+}
+
 export const Sizes: Story = {
   render: () => ({
     components: { Button },
@@ -111,18 +124,18 @@ export const AllVariants: Story = {
       return { ButtonSize, ButtonVariant }
     },
     template: `
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
         <Button :variant="ButtonVariant.Primary">Primary</Button>
         <Button :variant="ButtonVariant.Secondary">Secondary</Button>
+        <Button :variant="ButtonVariant.Tertiary">Tertiary</Button>
         
         <Button :variant="ButtonVariant.Primary" disabled>Primary Disabled</Button>
         <Button :variant="ButtonVariant.Secondary" disabled>Secondary Disabled</Button>
+        <Button :variant="ButtonVariant.Tertiary" disabled>Tertiary Disabled</Button>
         
         <Button :variant="ButtonVariant.Primary" loading>Loading</Button>
         <Button :variant="ButtonVariant.Secondary" loading>Loading</Button>
-        
-        <Button :variant="ButtonVariant.Primary" icon="">With Icon</Button>
-        <Button :variant="ButtonVariant.Secondary" icon="">With Icon</Button>
+        <Button :variant="ButtonVariant.Tertiary" loading>Loading</Button>
       </div>
     `
   })
