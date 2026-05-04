@@ -34,59 +34,52 @@
 
 <style lang="scss" scoped>
   .input {
-    padding: var(--spacing-m) var(--spacing-l);
-    font-size: var(--font-size-m);
-    font-family: var(--font-family);
-    border: 2px solid var(--color-border);
-    border-radius: var(--border-radius-s);
+    padding: var(--eos-space-s) var(--eos-space-m);
+    font-size: var(--eos-font-size-m);
+    border: 2px solid var(--eos-color-primary-300);
+    border-radius: var(--eos-radius-m);
     outline: none;
-    color: var(--color-text);
-    transition: all var(--transition-base, 0.2s) ease;
+    color: var(--eos-color-primary-800);
 
     &:focus {
-      border-color: var(--color-primary);
+      border-color: var(--eos-color-primary-500);
     }
 
     &::placeholder {
-      color: var(--color-text-light);
+      color: var(--eos-color-primary-200);
     }
 
     &_error {
-      border-color: var(--color-error);
-      background-color: var(--color-background-error);
+      border-color: var(--eos-color-error);
+      background-color: var(--eos-color-error-light);
 
       &:focus {
-        border-color: var(--color-error);
+        border-color: var(--eos-color-error);
       }
     }
 
     &_disabled {
-      background-color: var(--color-background-light);
-      color: var(--color-text-disabled);
+      background-color: var(--eos-color-primary-100);
+      color: var(--eos-color-primary-600);
       cursor: not-allowed;
       opacity: 0.6;
 
-      &:focus {
-        border-color: var(--color-border);
-      }
-
       &::placeholder {
-        color: #bbb;
+        color: var(--eos-color-primary-200);
       }
     }
 
     &__wrapper {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-s);
-      font-family: var(--font-family);
+      gap: var(--eos-space-s);
+      font-family: var(--eos-font-family);
     }
 
     &__error {
-      font-size: var(--font-size-s);
-      color: var(--color-error);
-      line-height: var(--line-height-normal);
-      margin-top: var(--spacing-xs);
+      font-size: var(--eos-font-size-s);
+      color: var(--eos-color-error);
+      line-height: var(--eos-line-height-normal);
     }
   }
 </style>

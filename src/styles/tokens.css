@@ -34,6 +34,10 @@
   --eos-color-primary-900-alpha: rgb(35 21 16 / 70%);
   --eos-color-primary-950-alpha: rgb(24 15 11 / 70%);
 
+  /* Semantic colors */
+  --eos-color-error: #dc2626;
+  --eos-color-error-light: #fee2e2;
+
   /* Typography */
   --eos-font-family: 'Nunito', 'Helvetica Neue', helvetica, arial, sans-serif;
   --eos-font-size-xs: 12px;

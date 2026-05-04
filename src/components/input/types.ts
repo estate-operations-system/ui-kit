@@ -19,10 +19,6 @@ export interface InputProps {
    */
   placeholder: string
   /**
-   * Helper text displayed below the input
-   */
-  helperText?: string
-  /**
    * Error message - when set, input shows error state
    */
   error?: string
