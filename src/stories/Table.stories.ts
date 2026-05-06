@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { Table } from '../components/table'
 import { Button, ButtonSize, ButtonVariant } from '../components/button'
+import { EosTag as Tag, TagSize } from '../components/tag'
 import type { TableColumn, TableRow } from '../components/table/types'
 
 const meta = {
@@ -41,7 +42,8 @@ type Story = StoryObj<typeof meta>
 const defaultColumns: TableColumn[] = [
   { id: 'name', name: 'Имя', width: 150 },
   { id: 'email', name: 'Email' },
-  { id: 'status', name: 'Статус' }
+  { id: 'status', name: 'Статус' },
+  { id: 'tag', name: 'Тег' }
 ]
 
 const defaultRows: TableRow[] = [
@@ -50,7 +52,8 @@ const defaultRows: TableRow[] = [
     cells: [
       { id: 'name', data: 'Иван Петров' },
       { id: 'email', data: 'ivan@example.com' },
-      { id: 'status', data: 'Активный' }
+      { id: 'status', data: 'Активный' },
+      { id: 'tag', data: 'Primary' }
     ]
   },
   {
@@ -58,7 +61,8 @@ const defaultRows: TableRow[] = [
     cells: [
       { id: 'name', data: 'Мария Сидорова' },
       { id: 'email', data: 'maria@example.com' },
-      { id: 'status', data: 'Активный' }
+      { id: 'status', data: 'Активный' },
+      { id: 'tag', data: 'Success' }
     ]
   },
   {
@@ -66,7 +70,8 @@ const defaultRows: TableRow[] = [
     cells: [
       { id: 'name', data: 'Алексей Иванов' },
       { id: 'email', data: 'alex@example.com' },
-      { id: 'status', data: 'Неактивный' }
+      { id: 'status', data: 'Неактивный' },
+      { id: 'tag', data: 'Error' }
     ]
   }
 ]
@@ -110,12 +115,21 @@ export const WithSlots: Story = {
     clickable: true
   },
   render: (args) => ({
-    components: { Table, Button },
+    components: { Table, Button, Tag },
     setup() {
       const handleRowClick = (row: TableRow) => {
         window.alert(`Row clicked: ${JSON.stringify(row)}`)
       }
-      return { args, ButtonSize, ButtonVariant, handleRowClick }
+      const getTagColor = (tagName: string) => {
+        const colorMap: Record<string, string> = {
+          Primary: '#ad6952',
+          Success: '#10b981',
+          Error: '#dc2626',
+          Warning: '#f59e0b'
+        }
+        return colorMap[tagName] || '#ad6952'
+      }
+      return { args, ButtonSize, ButtonVariant, TagSize, handleRowClick, getTagColor }
     },
     template: `
       <Table v-bind="args" @rowClick="handleRowClick">
@@ -127,6 +141,11 @@ export const WithSlots: Story = {
           >
             {{ cell.data }}
           </Button>
+        </template>
+        <template #cell-tag="{ cell }">
+          <Tag :size="TagSize.Medium" :color="getTagColor(cell.data)">
+            {{ cell.data }}
+          </Tag>
         </template>
       </Table>
     `
