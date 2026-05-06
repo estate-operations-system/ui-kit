@@ -1,5 +1,9 @@
 <template>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <svg
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+  >
     <g clip-path="url(#a)">
       <path
         fill="currentColor"
@@ -7,18 +11,23 @@
       />
     </g>
     <defs>
-      <clipPath id="a"><path fill="currentColor" d="M0 0h24v24H0z" /></clipPath>
+      <clipPath id="a">
+        <path
+          fill="currentColor"
+          d="M0 0h24v24H0z"
+        />
+      </clipPath>
     </defs>
   </svg>
 </template>
 
 <style scoped>
-  svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-  }
+svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
 </style>

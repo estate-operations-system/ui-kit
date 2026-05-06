@@ -6,5 +6,8 @@
   "tabWidth": 2,
   "useTabs": false,
   "arrowParens": "always",
-  "vueIndentScriptAndStyle": true
+  "singleAttributePerLine": true,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "bracketSameLine": false
 }
