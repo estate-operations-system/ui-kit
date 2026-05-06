@@ -8,6 +8,6 @@
   "arrowParens": "always",
   "singleAttributePerLine": true,
   "bracketSpacing": true,
-  "endOfLine": "lf",
+  "endOfLine": "crlf",
   "bracketSameLine": false
 }

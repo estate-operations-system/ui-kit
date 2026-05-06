@@ -7,6 +7,9 @@ export { InputType, type InputProps, type InputEmits } from './components/input/
 export { default as EosButton } from './components/button/Button.vue'
 export { ButtonSize, ButtonVariant, type ButtonProps } from './components/button/types'
 
+export { default as EosTag } from './components/tag/Tag.vue'
+export { TagSize, type TagProps } from './components/tag/types'
+
 export { default as EosTable } from './components/table/Table.vue'
 export type {
   TableProps,
