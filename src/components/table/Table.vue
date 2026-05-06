@@ -14,12 +14,11 @@
     </thead>
     <tbody class="table__body">
       <tr
-        v-for="(row, index) in rows"
+        v-for="row in rows"
         :key="row.id"
         class="table__row"
         :class="{
-          table__row_clickable: clickable,
-          table__row_last: index === rows.length - 1
+          table__row_clickable: clickable
         }"
         @click="handleRowClick(row)"
       >
