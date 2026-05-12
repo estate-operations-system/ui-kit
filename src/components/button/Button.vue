@@ -10,7 +10,7 @@
   >
     <span
       class="button__content"
-      :class="{ button__content_hidden: loading }"
+      :class="{ button__content_hidden: loading && variant !== ButtonVariant.Tertiary }"
     >
       <slot />
     </span>
@@ -159,7 +159,6 @@ const handleClick = () => {
     padding: 0;
     min-height: auto;
     border-radius: 0;
-    font-weight: var(--eos-font-weight-semibold);
 
     &:hover:not(.button_disabled):not(.button_loading) {
       color: var(--eos-color-primary-700);
