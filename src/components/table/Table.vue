@@ -79,12 +79,6 @@ const handleRowClick = (row: TableRow) => {
   }
 
   &__row {
-    border-bottom: 1px solid var(--eos-color-primary-200);
-
-    &:last-child {
-      border-bottom: none;
-    }
-
     &.table__row_clickable {
       cursor: pointer;
       transition: background-color 0.2s ease;
