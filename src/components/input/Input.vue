@@ -1,6 +1,16 @@
 <template>
   <div class="input__wrapper">
+    <textarea
+      v-if="type === 'textarea'"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :value="modelValue"
+      class="input input_textarea"
+      :class="inputClasses"
+      @input="emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
+    />
     <input
+      v-else
       :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -45,6 +55,7 @@ const inputClasses = computed(() => ({
   border-radius: var(--eos-radius-m);
   outline: none;
   color: var(--eos-color-primary-800);
+  font-family: var(--eos-font-family);
 
   &:focus {
     border-color: var(--eos-color-primary-500);
@@ -54,13 +65,14 @@ const inputClasses = computed(() => ({
     color: var(--eos-color-primary-200);
   }
 
+  &_textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
   &_error {
     border-color: var(--eos-color-error);
     background-color: var(--eos-color-error-light);
-
-    &:focus {
-      border-color: var(--eos-color-error);
-    }
   }
 
   &_disabled {
