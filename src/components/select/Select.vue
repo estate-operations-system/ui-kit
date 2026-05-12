@@ -126,7 +126,7 @@ useEventListener(document, 'click', handleClickOutside)
     box-shadow: 0 4px 6px var(--eos-color-primary-600-alpha-10);
     max-height: 200px;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 10;
   }
 
   &__option {
