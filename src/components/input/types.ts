@@ -2,7 +2,8 @@ export enum InputType {
   Text = 'text',
   Email = 'email',
   Password = 'password',
-  Tel = 'tel'
+  Tel = 'tel',
+  Textarea = 'textarea'
 }
 
 export interface InputProps {

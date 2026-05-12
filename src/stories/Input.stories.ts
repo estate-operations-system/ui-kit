@@ -13,7 +13,7 @@ const meta = {
         component:
           'A reusable input component with support for error state and disabled state. ' +
           'Built with SCSS for easy customization. ' +
-          'Supports text, email, password, and tel input types.'
+          'Supports text, email, password, tel input types, and textarea.'
       }
     }
   },
@@ -25,7 +25,7 @@ const meta = {
     type: {
       control: 'select',
       options: Object.values(InputType),
-      description: 'Input type attribute (text, email, password, tel)'
+      description: 'Input type attribute (text, email, password, tel, textarea)'
     },
     placeholder: {
       control: 'text',
@@ -90,5 +90,16 @@ export const Password: Story = {
   args: {
     type: InputType.Password,
     placeholder: 'Enter your password'
+  }
+}
+
+/**
+ * Textarea input
+ */
+export const Textarea: Story = {
+  args: {
+    type: InputType.Textarea,
+    placeholder: 'Enter your message here...',
+    modelValue: ''
   }
 }
