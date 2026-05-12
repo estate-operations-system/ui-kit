@@ -26,6 +26,12 @@ export type {
 export { default as EosTabs } from './components/tabs/Tabs.vue'
 export type { TabsProps, TabsEmits, TabItem } from './components/tabs/types'
 
+export { default as EosModal } from './components/modal/Modal.vue'
+export type { ModalProps, ModalEmits } from './components/modal/types'
+
+export { default as EosCard } from './components/card/Card.vue'
+export type { CardProps } from './components/card/types'
+
 // Icons (auto-generated from src/icons/*.svg)
 export * from './components/icons'
 
